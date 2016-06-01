@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="TripPlanner:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TripPlanner_jar</output-path>
+    <root id="archive" name="TripPlanner.jar">
+      <element id="module-output" name="TripPlanner" />
+    </root>
+  </artifact>
+</component>
