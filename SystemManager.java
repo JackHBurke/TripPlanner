@@ -30,7 +30,14 @@ public class SystemManager {
          System.out.println("5 to create cruise company, 6 to create port, 7 to create ship, 8 to create cabin section, ");
          System.out.println("9 to create cruise trip, 10 to print airline subsystem, 11 to print cruise subsystem, and 0 to exit");
          System.out.println();
-         int choice = keyboard.nextInt();
+         int choice;
+         try {
+            choice = keyboard.nextInt();
+         } catch (Exception e) {
+            System.out.println("Invalid input, only integers are accepted");
+            keyboard.nextLine();
+            return;
+         }
          keyboard.nextLine();
          if (choice == 1){ //create airport
             this.newAirportInfo(keyboard);
@@ -73,7 +80,14 @@ public class SystemManager {
          System.out.println("Press 3 to find an available cruise, 4 to book a specific cabin");
          System.out.println("Press 0 to exit");
          System.out.println();
-         int choice = keyboard.nextInt();
+         int choice;
+         try {
+            choice = keyboard.nextInt();
+         } catch (Exception e) {
+            System.out.println("Invalid input, only integers are accepted");
+            keyboard.nextLine();
+            return;
+         }
          if (choice == 1) { //find flight
             this.getFlightRequirements(keyboard);
          }else if (choice == 2){ //book seat
@@ -142,12 +156,18 @@ public class SystemManager {
       depart = keyboard.next();
       System.out.println("Enter arriving airport: ");
       arrive = keyboard.next();
-      System.out.println("Enter year: ");
-      year = keyboard.nextInt();
-      System.out.println("Enter 2 digit month: ");
-      month = keyboard.nextInt();
-      System.out.println("Enter 2 digit day: ");
-      day = keyboard.nextInt();
+      try {
+         System.out.println("Enter year: ");
+         year = keyboard.nextInt();
+         System.out.println("Enter 2 digit month: ");
+         month = keyboard.nextInt();
+         System.out.println("Enter 2 digit day: ");
+         day = keyboard.nextInt();
+      } catch (Exception e) {
+         System.out.println("Invalid input, only integers are accepted");
+         keyboard.nextLine();
+         return;
+      }
       System.out.println("Enter flight id: ");
       id = keyboard.next();
       this.createFlight(airline, depart, arrive, year, month, day, id);
@@ -161,12 +181,18 @@ public class SystemManager {
       airline = keyboard.next();
       System.out.println("Enter flight id: ");
       flight = keyboard.next();
-      System.out.println("Enter number of rows: ");
-      row = keyboard.nextInt();
-      System.out.println("Enter number of columns: ");
-      col = keyboard.nextInt();
-      System.out.println("Enter class : 1 for economy, 2 for business, and 3 for first: ");
-      sec = keyboard.nextInt();
+      try {
+         System.out.println("Enter number of rows: ");
+         row = keyboard.nextInt();
+         System.out.println("Enter number of columns: ");
+         col = keyboard.nextInt();
+         System.out.println("Enter class : 1 for economy, 2 for business, and 3 for first: ");
+         sec = keyboard.nextInt();
+      } catch (Exception e) {
+         System.out.println("Invalid input, only integers are accepted");
+         keyboard.nextLine();
+         return;
+      }
       if (sec == 1) {
          section = SeatClass.economy;
       } else if (sec == 2) {
@@ -205,7 +231,13 @@ public class SystemManager {
       System.out.println("Enter ship name: ");
       id = keyboard.next();
       System.out.println("Enter class : 1 for Family, 2 for Couples, 3 for Deluxe Family and 4 for Deluxe Couples: ");
-      sec = keyboard.nextInt();
+      try {
+         sec = keyboard.nextInt();
+      } catch (Exception e) {
+         System.out.println("Invalid input, only integers are accepted");
+         keyboard.nextLine();
+         return;
+      }
       if (sec == 1) {
          section = CabinClass.Family;
       } else if (sec == 2) {
@@ -216,7 +248,13 @@ public class SystemManager {
          section = CabinClass.Deluxe_Couples;
       }
       System.out.println("Enter number of cabins in section: ");
-      num = keyboard.nextInt();
+      try {
+         num = keyboard.nextInt();
+      } catch (Exception e) {
+         System.out.println("Invalid input, only integers are accepted");
+         keyboard.nextLine();
+         return;
+      }
       this.createCabinsection(id, section, num);
    }
 
@@ -231,18 +269,24 @@ public class SystemManager {
       keyboard.nextLine();
       System.out.println("Enter ship id: ");
       ship = keyboard.nextLine();
-      System.out.println("Enter leave year: ");
-       deptYear = keyboard.nextInt();
-      System.out.println("Enter leave month: ");
-       deptMonth = keyboard.nextInt();
-      System.out.println("Enter leave day: ");
-      deptDay = keyboard.nextInt();
-      System.out.println("Enter return year: ");
-      retYear = keyboard.nextInt();
-      System.out.println("Enter return month: ");
-      retMonth = keyboard.nextInt();
-      System.out.println("Enter return day: ");
-      retDay = keyboard.nextInt();
+      try {
+         System.out.println("Enter leave year: ");
+         deptYear = keyboard.nextInt();
+         System.out.println("Enter leave month: ");
+         deptMonth = keyboard.nextInt();
+         System.out.println("Enter leave day: ");
+         deptDay = keyboard.nextInt();
+         System.out.println("Enter return year: ");
+         retYear = keyboard.nextInt();
+         System.out.println("Enter return month: ");
+         retMonth = keyboard.nextInt();
+         System.out.println("Enter return day: ");
+         retDay = keyboard.nextInt();
+      } catch (Exception e) {
+         System.out.println("Invalid input, only integers are accepted");
+         keyboard.nextLine();
+         return;
+      }
       System.out.println("Now, enter the locations of the stops on the trip, in order of starting port to end");
       System.out.println("To finish entering ports, enter in the character 'd'");
       boolean cont = true;
@@ -275,7 +319,14 @@ public class SystemManager {
       String flight = keyboard.next();
       System.out.println("Enter class : 1 for economy, 2 for business, and 3 for first: ");
       SeatClass section;
-      int sec = keyboard.nextInt();
+      int sec;
+      try {
+         sec = keyboard.nextInt();
+      } catch (Exception e) {
+         System.out.println("Invalid input, only integers are accepted");
+         keyboard.nextLine();
+         return;
+      }
       if (sec == 1) {
          section = SeatClass.economy;
       } else if (sec == 2) {
@@ -284,7 +335,14 @@ public class SystemManager {
          section = SeatClass.first;
       }
       System.out.println("Enter in a row (a number)");
-      int row = keyboard.nextInt();
+      int row;
+      try {
+         row = keyboard.nextInt();
+      } catch (Exception e) {
+         System.out.println("Invalid input, only integers are accepted");
+         keyboard.nextLine();
+         return;
+      }
       System.out.println("Enter in a column (a letter)");
       String col = keyboard.next();
       this.bookSeat(line,flight,section,row,col.charAt(0));
@@ -304,7 +362,14 @@ public class SystemManager {
       System.out.println("Enter in a trip id");
       String trip = keyboard.next();
       System.out.println("Enter class : 1 for Family, 2 for Couples, 3 for Deluxe Family and 4 for Deluxe Couples: ");
-      int sec = keyboard.nextInt();
+      int sec;
+      try {
+         sec = keyboard.nextInt();
+      } catch (Exception e) {
+         System.out.println("Invalid input, only integers are accepted");
+         keyboard.nextLine();
+         return;
+      }
       CabinClass section;
       if (sec == 1) {
          section = CabinClass.Family;
@@ -316,7 +381,14 @@ public class SystemManager {
          section = CabinClass.Deluxe_Couples;
       }
       System.out.println("Enter in how many seats you would like to book");
-      int people = keyboard.nextInt();
+      int people;
+      try {
+         people = keyboard.nextInt();
+      } catch (Exception e) {
+         System.out.println("Invalid input, only integers are accepted");
+         keyboard.nextLine();
+         return;
+      }
       this.bookCabin(cruise,trip,section,people);
    }
 
